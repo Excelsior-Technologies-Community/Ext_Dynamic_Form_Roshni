@@ -1,0 +1,58 @@
+﻿@model Ext_Dynamic_Form.Models.ActivityDetail
+@{
+    ViewData["Title"] = "Create";
+    var activities = ViewBag.Activities as List<Ext_Dynamic_Form.Models.Activity>;
+    var pages = ViewBag.Pages as List<Ext_Dynamic_Form.Models.Page>;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Activity Detail</h2>
+
+<form asp-action="Create" asp-controller="ActivityDetails" method="post">
+    <div class="form-group mb-2">
+        <label>Activity</label>
+        <select asp-for="ActivityId" class="form-control">
+            <option value="">-- Select Activity --</option>
+            @foreach (var a in activities)
+            {
+                <option value="@a.ID">@a.Title</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group mb-2">
+        <label>Page</label>
+        <select asp-for="PageMasterId" class="form-control">
+            <option value="">-- Select Page --</option>
+            @foreach (var p in pages)
+            {
+                <option value="@p.ID">@p.Title</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group mb-2">
+        <label>Title</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+
+    <div class="form-group mb-2">
+        <label>Action Type</label>
+        <select asp-for="ActionTypeId" class="form-control">
+            <option value="">-- Select Action Type --</option>
+            <option value="1">Drop-down</option>
+            <option value="2">Text</option>
+            <option value="3">Status</option>
+            <option value="4">Number</option>
+            <option value="5">Checkbox</option>
+            <option value="6">Rating</option>
+            <option value="7">TextArea</option>
+            <option value="8">Date</option>
+            <option value="9">Checkbox 123</option>
+            <option value="10">File</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>

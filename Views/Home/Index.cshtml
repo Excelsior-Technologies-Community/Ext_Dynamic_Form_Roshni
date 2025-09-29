@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Ext_Dynamic_Form.Models.ActivityDetail>
+
+@{
+    ViewData["Title"] = "Activity Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Activity Details</h2>
+
+<p>
+    <a asp-action="CreateActivityDetail" class="btn btn-primary">Create New Activity Detail</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Activity</th>
+            <th>Title</th>
+            <th>Action Type</th>
+            <th>Page</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            int i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@item.ActivityId</td>
+                    <td>@item.Title</td>
+                    <td>@item.ActionTypeId</td>
+                    <td>@item.PageMasterId</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center">No records found.</td>
+            </tr>
+        }
+    </tbody>
+</table>

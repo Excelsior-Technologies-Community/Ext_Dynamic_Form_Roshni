@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Ext_Dynamic_Form.Models.ActivityDetail>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Activity Details List</h2>
+<a asp-action="Create" asp-controller="ActivityDetails" class="btn btn-primary mb-3">Create New Activity Detail</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Activity</th>
+            <th>Page</th>
+            <th>Title</th>
+            <th>Action Type</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detail in Model)
+        {
+            <tr>
+                <td>@detail.ID</td>
+                <td>@detail.ActivityId</td>
+                <td>@detail.PageMasterId</td>
+                <td>@detail.Title</td>
+                <td>@detail.ActionTypeId</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@detail.ID" class="btn btn-sm btn-warning">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@detail.ID" method="post" style="display:inline-block;"
+                          onsubmit="return confirm('Are you sure you want to delete this activity?');">
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

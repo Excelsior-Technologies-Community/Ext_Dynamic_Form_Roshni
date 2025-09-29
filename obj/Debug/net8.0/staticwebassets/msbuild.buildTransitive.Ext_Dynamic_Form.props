@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Ext_Dynamic_Form.props" />
+</Project>

@@ -1,0 +1,32 @@
+﻿@model List<Ext_Dynamic_Form.Models.Page>
+
+@{
+    ViewData["Title"] = "PageMaster";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pages List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var pages in Model)
+        {
+            <tr>
+                <td>@pages.ID</td>
+                <td>@pages.Title</td>
+                <td>@pages.Description</td>
+                <td>
+                    <a asp-action="Index" asp-route-pageId="@pages.ID" class="btn btn-primary">Open Form</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

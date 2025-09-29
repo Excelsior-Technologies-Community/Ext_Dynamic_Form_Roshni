@@ -1,0 +1,19 @@
+﻿@model Ext_Dynamic_Form.Models.Activity
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h2>Create New Activity</h2>
+
+<form asp-action="Create" asp-controller="Activities" method="post">
+    <div class="form-group mb-2">
+        <label>Title</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
