@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\Company Work\Ext_Dynamic_Form
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/Company Work/Ext_Dynamic_Form/Views/Activities/ActivityDetailsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc1xBY3Rpdml0eURldGFpbHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Company Work/Ext_Dynamic_Form/Views/Activities/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,8 +46,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlEZXRhaWxzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Company Work/Ext_Dynamic_Form/Views/Home/CreateActivityDetail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVBY3Rpdml0eURldGFpbC5jc2h0bWw=
+[F:/Company Work/Ext_Dynamic_Form/Views/Home/DynamicForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEeW5hbWljRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Company Work/Ext_Dynamic_Form/Views/Home/Index.cshtml]
@@ -56,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/Company Work/Ext_Dynamic_Form/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Company Work/Ext_Dynamic_Form/Views/Home/_DynamicFormPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfRHluYW1pY0Zvcm1QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Company Work/Ext_Dynamic_Form/Views/Pages/Create.cshtml]

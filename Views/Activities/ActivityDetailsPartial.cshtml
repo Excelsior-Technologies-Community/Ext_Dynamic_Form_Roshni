@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Ext_Dynamic_Form.Models.ActivityDetail>
+
+@{
+    ViewData["Title"] = "ActivityDetailsPartial";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning">No details found for this activity.</div>
+}
+else
+{
+    var actionTypeMap = ViewBag.ActionTypeMap as Dictionary<long, string>;
+    var pagesMap = ViewBag.Pages as Dictionary<long, string>;
+
+    <table class="table table-sm table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Action Type</th>
+                <th>Page</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in Model)
+            {
+                <tr>
+                    <td>@detail.ID</td>
+                    <td>@detail.Title</td>
+                    <td>@(actionTypeMap.ContainsKey(detail.ActionTypeId) ? actionTypeMap[detail.ActionTypeId] : "Unknown")</td>
+                    <td>@(pagesMap.ContainsKey(detail.PageMasterId) ? pagesMap[detail.PageMasterId] : "Unknown")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

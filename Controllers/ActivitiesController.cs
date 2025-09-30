@@ -9,7 +9,7 @@ namespace Ext_Dynamic_Form.Controllers
         private readonly ActivityRepository _activityRepo;
         private readonly PageRepository _pageRepo;
 
-        public ActivitiesController(ActivityRepository activityRepo, ActivityDetailRepository activityDetailRepository,        
+        public ActivitiesController(ActivityRepository activityRepo, ActivityDetailRepository activityDetailRepository,
             PageRepository pageRepo)
         {
             _activityDetailRepo = activityDetailRepository;
@@ -28,7 +28,7 @@ namespace Ext_Dynamic_Form.Controllers
             return View();
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Activity activity)
@@ -41,7 +41,57 @@ namespace Ext_Dynamic_Form.Controllers
             return View(activity);
         }
 
-        
+        //public IActionResult Details(int id)
+        //{
+        //    var activity = _activityRepo.GetById(id, "SELECTBYID");
+        //    if (activity == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var details = _activityDetailRepo.GetActivityDetailsByActivityId(id, "SELECTBYACTIVITYID");
+
+        //    ViewBag.ActivityTitle = activity.Title;
+        //    return PartialView("ActivityDetailsPartial", details);
+        //}
+
+        public IActionResult Details(int id)
+        {
+            var activity = _activityRepo.GetById(id, "SELECTBYID");
+            if (activity == null)
+                return NotFound();
+
+            var details = _activityDetailRepo.GetActivityDetailsByActivityId(id, "SELECTBYACTIVITYID");
+
+            // Map ActionTypeId to name
+            var actionTypeMap = new Dictionary<long, string>
+            {
+                { 1, "Drop-down" },
+                { 2, "Text" },
+                { 3, "Status" },
+                { 4, "Number" },
+                { 5, "Checkbox" },
+                { 6, "Rating" },
+                { 7, "TextArea" },
+                { 8, "Date" },
+                { 9, "Checkbox 123" },
+                { 10, "File" }
+            };
+
+
+            var pages = _pageRepo.GetAll("SELECTALL");
+
+
+            ViewBag.ActionTypeMap = actionTypeMap;
+            ViewBag.Pages = pages.ToDictionary(p => p.ID, p => p.Title);
+
+            ViewBag.ActivityTitle = activity.Title;
+
+            return PartialView("ActivityDetailsPartial", details);
+        }
+
+
+
         public IActionResult Edit(long id)
         {
             var activity = _activityRepo.GetById(id, "GETBYID");
@@ -52,7 +102,7 @@ namespace Ext_Dynamic_Form.Controllers
             return View(activity);
         }
 
-       
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(long id, Activity activity)
@@ -80,7 +130,7 @@ namespace Ext_Dynamic_Form.Controllers
             return View(activity);
         }
 
-        
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(long id)
@@ -88,5 +138,7 @@ namespace Ext_Dynamic_Form.Controllers
             _activityRepo.Delete(id, "DELETE");
             return RedirectToAction(nameof(Index));
         }
+
+
     }
 }

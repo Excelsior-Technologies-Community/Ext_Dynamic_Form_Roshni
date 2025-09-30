@@ -95,6 +95,21 @@ namespace Ext_Dynamic_Form.Repository
             }
         }
 
+        public void InsertField(Int64 activityDetailId, FieldDetail field,string action)
+        {
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand("usp_ActivitiesDetail_CRUD", con)) 
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ActivityDetailId", activityDetailId);
+                cmd.Parameters.AddWithValue("@Title", field.Title ?? "");
+                cmd.Parameters.AddWithValue("@ActionTypeId", field.ActionTypeId);
+                cmd.Parameters.AddWithValue("@Action", action);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public void Update(ActivityDetail detail,string action)
         {
             using (SqlConnection con = new SqlConnection(_connectionString))
@@ -130,5 +145,41 @@ namespace Ext_Dynamic_Form.Repository
                 }
             }
         }
+
+        public IEnumerable<ActivityDetail> GetActivityDetailsByActivityId(Int64 activityId,string action)
+        {
+            var details = new List<ActivityDetail>();
+
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_ActivitiesDetail_CRUD", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ActivityId", activityId);
+                    cmd.Parameters.AddWithValue("@Action", action);
+
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            details.Add(new ActivityDetail
+                            {
+                                ID = Convert.ToInt64(reader["ID"]),
+                                ActivityDeatailId = Convert.ToInt64(reader["ActivityDeatailId"]),
+                                ActivityId = Convert.ToInt64(reader["ActivityId"]),
+                                Title = reader["Title"].ToString(),
+                                ActionTypeId = Convert.ToInt64(reader["ActionTypeId"]),
+                                PageMasterId = Convert.ToInt64(reader["PageMasterId"]),
+
+                            });
+                        }
+                    }
+                }
+            }
+
+            return details;
+        }
+
     }
 }

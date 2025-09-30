@@ -30,6 +30,7 @@ namespace Ext_Dynamic_Form.Controllers
             return View();
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(ActivityDetail detail)
@@ -39,12 +40,52 @@ namespace Ext_Dynamic_Form.Controllers
                 _activityDetailRepo.Insert(detail, "INSERT");
                 return RedirectToAction(nameof(Index));
             }
-
             LoadDropdowns();
             return View(detail);
         }
 
-       
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Create(ActivityDetail model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        foreach (var field in model.Details)
+        //        {
+        //            var detail = new ActivityDetail
+        //            {
+        //                ActivityId = model.ActivityId,
+        //                PageMasterId = model.PageMasterId,
+        //                Title = field.Title,
+        //                ActionTypeId = field.ActionTypeId
+        //            };
+        //            _activityDetailRepo.Insert(detail, "INSERT");
+        //        }
+
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    LoadDropdowns();
+        //    return View(model);
+        //}
+
+
+
+        public IActionResult Details(int id)
+        {
+            var activity = _activityRepo.GetById(id, "SELECTBYID");
+            if (activity == null)
+            {
+                return NotFound();
+            }
+
+            var details = _activityDetailRepo.GetActivityDetailsByActivityId(id, "SELECTBYID");
+
+            ViewBag.ActivityTitle = activity.Title;
+            return View(details);
+        }
+
+
         public IActionResult Edit(long id)
         {
             var detail = _activityDetailRepo.GetById(id, "GETBYID");
