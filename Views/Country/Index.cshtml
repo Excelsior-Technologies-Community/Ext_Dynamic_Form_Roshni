@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Ext_Dynamic_Form.Models.Country>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Countries List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Country</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Country Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.CountryName</td>
+                <td>
+                    <a asp-controller="Country" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-controller="Country" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $(".btn-edit").click(function () {
+                var id = $(this).data("id");
+                window.location.href = '@Url.Action("Edit", "Country")/' + id;
+            });
+
+
+            $(".btn-delete").click(function () {
+                var id = $(this).data("id");
+                if (confirm("Are you sure you want to delete this country?")) {
+                    window.location.href = "/Country/Delete/" + id; 
+                }
+            });
+
+        });
+    </script>
+}

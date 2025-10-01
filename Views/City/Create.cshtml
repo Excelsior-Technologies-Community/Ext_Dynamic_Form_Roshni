@@ -1,0 +1,34 @@
+﻿@model Ext_Dynamic_Form.Models.City
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create City</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Country</label>
+        <select asp-for="CountryId" class="form-control"
+                asp-items="ViewBag.Countries">
+            <option value="">-- Select Country --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>State</label>
+        <select asp-for="StateId" class="form-control"
+                asp-items="ViewBag.States">
+            <option value="">-- Select State --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>City Name</label>
+        <input asp-for="CityName" class="form-control" />
+        <span asp-validation-for="CityName" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>

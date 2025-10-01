@@ -88,7 +88,7 @@ namespace Ext_Dynamic_Form.Controllers
 
         public IActionResult Edit(long id)
         {
-            var detail = _activityDetailRepo.GetById(id, "GETBYID");
+            var detail = _activityDetailRepo.GetById(id, "SELECTBYID");
             if (detail == null)
             {
                 return NotFound();
@@ -121,7 +121,7 @@ namespace Ext_Dynamic_Form.Controllers
         
         public IActionResult Delete(long id)
         {
-            var detail = _activityDetailRepo.GetById(id, "GETBYID");
+            var detail = _activityDetailRepo.GetById(id, "SELECTBYID");
             if (detail == null)
             {
                 return NotFound();

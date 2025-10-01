@@ -3,48 +3,96 @@
   "WorkspaceRootPath": "F:\\Company Work\\Ext_Dynamic_Form\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\activities\\activitydetailspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\activities\\activitydetailspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\controllers\\activitiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:controllers\\activitiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\repository\\activitydetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:repository\\activitydetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\home\\_dynamicform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\home\\_dynamicform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\home\\_dynamicformpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\home\\_dynamicformpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\home\\dynamicform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\home\\dynamicform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\activitydetails\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\activitydetails\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\home\\form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\home\\form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\activitydetails\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\activitydetails\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\controllers\\activitydetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:controllers\\activitydetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\activitydetails\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\activitydetails\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\country\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\country\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\models\\activitydetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:models\\activitydetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\home\\dynamicform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\home\\dynamicform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\state\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\state\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\state\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\state\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\activities\\activitydetailspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\activities\\activitydetailspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\country\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\country\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\controllers\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:controllers\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\state\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\state\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\repository\\activitydetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:repository\\activitydetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\city\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\city\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\city\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\city\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\city\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\city\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|f:\\company work\\ext_dynamic_form\\repository\\countryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A7F732-547A-4446-B544-F36B3C25D583}|Ext_Dynamic_Form.csproj|solutionrelative:repository\\countryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +102,258 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_DynamicForm.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\_DynamicForm.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\_DynamicForm.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\_DynamicForm.cshtml",
+              "RelativeToolTip": "Views\\Home\\_DynamicForm.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T13:02:15.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\Form.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Form.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\Form.cshtml",
+              "RelativeToolTip": "Views\\Home\\Form.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T09:10:02.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DynamicForm.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\DynamicForm.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\DynamicForm.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\DynamicForm.cshtml",
+              "RelativeToolTip": "Views\\Home\\DynamicForm.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T08:57:12.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_DynamicFormPartial.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\_DynamicFormPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\_DynamicFormPartial.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\_DynamicFormPartial.cshtml",
+              "RelativeToolTip": "Views\\Home\\_DynamicFormPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-30T09:52:11.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAmwF4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T07:15:59.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T08:47:30.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ActivityDetailsController.cs",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\ActivityDetailsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ActivityDetailsController.cs",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\ActivityDetailsController.cs",
+              "RelativeToolTip": "Controllers\\ActivityDetailsController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAmwGIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T10:53:05.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\ActivityDetails\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\ActivityDetails\\Index.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\ActivityDetails\\Index.cshtml",
+              "RelativeToolTip": "Views\\ActivityDetails\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T07:16:25.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Country\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Country\\Edit.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Country\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Country\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T05:05:05.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\City\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\City\\Index.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\City\\Index.cshtml",
+              "RelativeToolTip": "Views\\City\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T06:05:03.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\City\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\City\\Create.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\City\\Create.cshtml",
+              "RelativeToolTip": "Views\\City\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T06:05:47.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\City\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\City\\Edit.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\City\\Edit.cshtml",
+              "RelativeToolTip": "Views\\City\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T06:06:35.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StateController.cs",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\StateController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StateController.cs",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\StateController.cs",
+              "RelativeToolTip": "Controllers\\StateController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAqwB0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T05:49:03.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\State\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\State\\Edit.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\State\\Edit.cshtml",
+              "RelativeToolTip": "Views\\State\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T05:43:29.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\State\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\State\\Create.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\State\\Create.cshtml",
+              "RelativeToolTip": "Views\\State\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T05:00:40.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\State\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\State\\Index.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\State\\Index.cshtml",
+              "RelativeToolTip": "Views\\State\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T04:59:55.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CountryController.cs",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\CountryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CountryController.cs",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\CountryController.cs",
+              "RelativeToolTip": "Controllers\\CountryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T04:33:22.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Country\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Country\\Create.cshtml",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Country\\Create.cshtml",
+              "RelativeToolTip": "Views\\Country\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T04:31:14.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CountryRepository.cs",
+              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Repository\\CountryRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\CountryRepository.cs",
+              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Repository\\CountryRepository.cs",
+              "RelativeToolTip": "Repository\\CountryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T04:29:32.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ActivityDetail.cs",
               "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Models\\ActivityDetail.cs",
               "RelativeDocumentMoniker": "Models\\ActivityDetail.cs",
@@ -71,111 +366,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\ActivityDetails\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\ActivityDetails\\Create.cshtml",
-              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\ActivityDetails\\Create.cshtml",
-              "RelativeToolTip": "Views\\ActivityDetails\\Create.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADkAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T09:59:55.282Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\ActivityDetails\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\ActivityDetails\\Index.cshtml",
-              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\ActivityDetails\\Index.cshtml",
-              "RelativeToolTip": "Views\\ActivityDetails\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T09:59:52.024Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_DynamicFormPartial.cshtml",
-              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\_DynamicFormPartial.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\_DynamicFormPartial.cshtml",
-              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\_DynamicFormPartial.cshtml",
-              "RelativeToolTip": "Views\\Home\\_DynamicFormPartial.cshtml",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T09:52:11.019Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAACwAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T07:15:59.218Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DynamicForm.cshtml",
-              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\DynamicForm.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\DynamicForm.cshtml",
-              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Home\\DynamicForm.cshtml",
-              "RelativeToolTip": "Views\\Home\\DynamicForm.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T07:11:58.848Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 13,
               "Title": "ActivityDetailsPartial.cshtml",
               "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Activities\\ActivityDetailsPartial.cshtml",
               "RelativeDocumentMoniker": "Views\\Activities\\ActivityDetailsPartial.cshtml",
               "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Activities\\ActivityDetailsPartial.cshtml",
               "RelativeToolTip": "Views\\Activities\\ActivityDetailsPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-09-30T05:24:19.029Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ActivitiesController.cs",
-              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\ActivitiesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ActivitiesController.cs",
-              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\ActivitiesController.cs",
-              "RelativeToolTip": "Controllers\\ActivitiesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T11:02:43.023Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 21,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACMAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACIAAABqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-09-29T09:59:04.899Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 17,
               "Title": "ActivityDetailRepository.cs",
               "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Repository\\ActivityDetailRepository.cs",
               "RelativeDocumentMoniker": "Repository\\ActivityDetailRepository.cs",
@@ -184,19 +401,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-29T09:46:33.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ActivityDetailsController.cs",
-              "DocumentMoniker": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\ActivityDetailsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ActivityDetailsController.cs",
-              "ToolTip": "F:\\Company Work\\Ext_Dynamic_Form\\Controllers\\ActivityDetailsController.cs",
-              "RelativeToolTip": "Controllers\\ActivityDetailsController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAuwCkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T10:53:05.259Z",
               "EditorCaption": ""
             }
           ]

@@ -45,7 +45,7 @@ namespace Ext_Dynamic_Form.Controllers
        
         public IActionResult Edit(long id)
         {
-            var page = _pageRepo.GetById(id, "GETBYID");
+            var page = _pageRepo.GetById(id, "SELECTBYID");
             if (page == null)
             {
                 return NotFound();
@@ -73,7 +73,7 @@ namespace Ext_Dynamic_Form.Controllers
 
         public IActionResult Delete(long id)
         {
-            var page = _pageRepo.GetById(id, "GETBYID");
+            var page = _pageRepo.GetById(id, "SELECTBYID");
             if (page == null)
             {
                 return NotFound();

@@ -1,0 +1,99 @@
+﻿@model List<Ext_Dynamic_Form.Models.ActivityDetail>
+
+@{
+    ViewData["Title"] = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select Activity</h2>
+
+<div class="form-group">
+    <select id="activityDropdown" class="form-control">
+        <option value="">-- Select Activity --</option>
+        @foreach (var act in ViewBag.Activities)
+        {
+            <option value="@act.ID">@act.Title</option>
+        }
+    </select>
+</div>
+
+<!-- Form Title -->
+<h3 id="formTitle" class="mt-3 text-primary"></h3>
+
+<!-- Dynamic Form -->
+<div id="dynamic-form-container" class="mt-4"></div>
+
+<!-- Table to display submitted values -->
+<div id="submittedDataSection" class="mt-5" >
+    <h4>Entered Values</h4>
+    <table class="table table-bordered" id="submittedDataTable">
+        <thead>
+            <tr id="submittedDataHeader"></tr>
+        </thead>
+        <tbody id="submittedDataBody"></tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // When activity changes
+            $("#activityDropdown").change(function () {
+                var activityId = $(this).val();
+                var activityTitle = $("#activityDropdown option:selected").text();
+
+                if (activityId) {
+                    // Set the form title
+                    $("#formTitle").text("Activity: " + activityTitle);
+
+                    // Reset previous form and table
+                    $("#dynamic-form-container").html("");
+                    $("#submittedDataHeader").empty();
+                    $("#submittedDataBody").empty();
+                    $("#submittedDataSection").hide();
+
+                    // Load dynamic form
+                    $.get("/Home/GetFormByActivityId", { activityId: activityId }, function (data) {
+                        $("#dynamic-form-container").html(data);
+                    });
+                } else {
+                    $("#formTitle").text("");
+                    $("#dynamic-form-container").html("");
+                    $("#submittedDataSection").hide();
+                }
+            });
+
+            // Delegate form submission (since form loads dynamically)
+            $(document).on("submit", "#dynamicForm", function (e) {
+                e.preventDefault();
+
+                var formData = $(this).serializeArray();
+
+                // Build headers once (when first submission occurs)
+                if ($("#submittedDataHeader").children().length === 0) {
+                    $("#submittedDataHeader").append("<th>#</th>");
+                    $.each(formData, function (i, field) {
+                        $("#submittedDataHeader").append("<th>" + field.name + "</th>");
+                    });
+                }
+
+                // Build row
+                var rowCount = $("#submittedDataBody tr").length + 1;
+                var row = "<tr><td>" + rowCount + "</td>";
+                $.each(formData, function (i, field) {
+                    row += "<td>" + (field.value || "-") + "</td>";
+                });
+                row += "</tr>";
+
+                // Append row
+                $("#submittedDataBody").append(row);
+                $("#submittedDataSection").show();
+
+                // Clear form
+                $("#dynamicForm")[0].reset();
+            });
+        });
+    </script>
+}

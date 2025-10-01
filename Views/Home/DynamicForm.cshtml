@@ -1,0 +1,39 @@
+﻿@model List<Ext_Dynamic_Form.Models.ActivityDetail>
+
+@{
+    ViewData["Title"] = "DynamicForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select Activity</h2>
+
+<div class="form-group">
+    <select id="activityDropdown" class="form-control">
+        <option value="">-- Select Activity --</option>
+        @foreach (var act in ViewBag.Activities)
+        {
+            <option value="@act.ID">@act.Title</option>
+        }
+    </select>
+</div>
+
+<div id="dynamic-form-container" class="mt-4"></div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#activityDropdown").change(function () {
+                var activityId = $(this).val();
+
+                if (activityId) {
+                    $.get("/Home/GetFormByActivityId", { activityId: activityId }, function (data) {
+                        $("#dynamic-form-container").html(data);
+                    });
+                } else {
+                    $("#dynamic-form-container").html("");
+                }
+            });
+        });
+    </script>
+}

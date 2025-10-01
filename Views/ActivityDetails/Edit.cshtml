@@ -1,0 +1,48 @@
+﻿@model Ext_Dynamic_Form.Models.ActivityDetail
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Activity Detail</h2>
+
+<form asp-action="Edit"  method="post">
+    <input type="hidden" asp-for="ID" />
+
+    <div class="form-group mb-2">
+        <label asp-for="ActivityId" class="form-label">Activity</label>
+        <select asp-for="ActivityId" class="form-control" asp-items="ViewBag.Activities">
+            <option value="">-- Select Activity --</option>
+        </select>
+        <span asp-validation-for="ActivityId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="PageMasterId" class="form-label">Page</label>
+        <select asp-for="PageMasterId" class="form-control" asp-items="ViewBag.Pages">
+            <option value="">-- Select Page --</option>
+        </select>
+        <span asp-validation-for="PageMasterId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="Title" class="form-label">Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="ActionTypeId" class="form-label">Action Type</label>
+        <select asp-for="ActionTypeId" class="form-control" asp-items="ViewBag.ActionTypes">
+            <option value="">-- Select Action Type --</option>
+        </select>
+        <span asp-validation-for="ActionTypeId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="Index" asp-controller="ActivityDetails" class="btn btn-secondary">Back to List</a>
+</form>111
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

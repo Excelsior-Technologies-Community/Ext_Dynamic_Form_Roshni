@@ -10,11 +10,13 @@ namespace Ext_Dynamic_Form.Controllers
     public class HomeController : Controller
     {
         private readonly ActivityDetailRepository _activityDetailRepo;
+        private readonly ActivityRepository _activityRepository;
         private readonly PageRepository _pageRepo;
 
-        public HomeController(ActivityDetailRepository activityDetailRepo, PageRepository pageRepo)
+        public HomeController(ActivityDetailRepository activityDetailRepo,ActivityRepository activityRepository, PageRepository pageRepo)
         {
             _activityDetailRepo = activityDetailRepo;
+            _activityRepository = activityRepository;
             _pageRepo = pageRepo;
         }
 
@@ -27,46 +29,71 @@ namespace Ext_Dynamic_Form.Controllers
             return View(activities);
         }
 
-        public IActionResult CreateActivityDetail()
+
+        public IActionResult DynamicForm()
         {
-            BindDropdowns();
+            var activities = _activityRepository.GetAll("SELECTALL");
+            ViewBag.Activities = activities;
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult CreateActivityDetail(ActivityDetail model)
+        public IActionResult Form()
         {
-            if (ModelState.IsValid)
+            var activities = _activityRepository.GetAll("SELECTALL");
+            ViewBag.Activities = activities;
+            return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult GetFormByActivityId(int activityId)
+        {
+            var details = _activityDetailRepo.GetActivityDetailsByActivityId(activityId, "SELECTBYACTIVITYID");
+
+            if (details == null || !details.Any())
             {
-                var result = _activityDetailRepo.Insert(model, "INSERT");
-                if (result > 0)
-                {
-                    TempData["Success"] = "Activity detail created successfully!";
-                    return RedirectToAction(nameof(Index));
-                }
-                TempData["Error"] = "Something went wrong!";
+                return PartialView("_DynamicFormPartial", new List<ActivityDetail>()); // return empty
             }
-            BindDropdowns();
-            return View(model);
+
+            var activity = _activityRepository.GetById(activityId, "SELECTBYID");
+            ViewBag.ActivityTitle = activity?.Title ?? "Dynamic Form";
+
+            return PartialView("_DynamicFormPartial", details);
         }
 
-        private void BindDropdowns()
+        [HttpPost]
+        public IActionResult RegisterSubmit(int ActivityId, IFormCollection form)
         {
-            ViewBag.Activities = _activityDetailRepo.GetAll("SELECTALL")
-                                    .Select(x => new SelectListItem
-                                    {
-                                        Value = x.ID.ToString(),
-                                        Text = x.Title
-                                    }).ToList();
+            foreach (var key in form.Keys)
+            {
+                if (key.StartsWith("Field_"))
+                {
+                    var value = form[key];
+                    
+                }
+            }
 
-            ViewBag.Pages = _pageRepo.GetAll("SELECTALL")
-                                    .Select(x => new SelectListItem
-                                    {
-                                        Value = x.ID.ToString(),
-                                        Text = x.Title
-                                    }).ToList();
+            TempData["Success"] = "Form submitted successfully!";
+            return RedirectToAction("DynamicForm");
         }
+
+
+        [HttpPost]
+        public IActionResult dynamicForm(int ActivityId, IFormCollection form)
+        {
+            foreach (var key in form.Keys)
+            {
+                if (key.StartsWith("Field_"))
+                {
+                    var value = form[key];
+
+                }
+            }
+
+            TempData["Success"] = "Form submitted successfully!";
+            return RedirectToAction("Form");
+        }
+
         public IActionResult PageMaster()
         {
             var pages = _pageRepo.GetAll("SELECTALL");

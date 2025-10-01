@@ -1,0 +1,17 @@
+﻿@model List<Ext_Dynamic_Form.Models.ActivityDetail>
+
+@{
+    ViewData["Title"] = "_DynamicForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="dynamicForm">
+    @foreach (var field in Model)
+    {
+        <div class="form-group mb-3">
+            <label>@field.Title</label>
+            <input type="@field.ActionTypeId" name="@field.Title" class="form-control" />
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

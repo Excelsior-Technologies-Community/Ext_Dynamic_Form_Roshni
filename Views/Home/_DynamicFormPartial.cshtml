@@ -1,0 +1,87 @@
+﻿@model List<Ext_Dynamic_Form.Models.ActivityDetail>
+@{
+    ViewData["Title"] = "_DynamicFormPartial";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning">No fields found for this activity.</div>
+}
+else
+{
+    <h3>@ViewBag.ActivityTitle</h3>
+
+    <form asp-action="RegisterSubmit" method="post" enctype="multipart/form-data">
+        @foreach (var field in Model)
+        {
+            <div class="form-group mb-2">
+                <label>@field.Title</label>
+
+                @{
+                    switch (field.ActionTypeId)
+                    {
+                        case 1: // Drop-down
+                            <select name="Field_@field.ID" class="form-control">
+                                <option value="">-- Select --</option>
+                            </select>
+                            ;
+                            break;
+
+                        case 2: // Text
+                            <input type="text" name="Field_@field.ID" class="form-control" />
+                            ;
+                            break;
+
+                        case 3: // Status
+                            <select name="Field_@field.ID" class="form-control">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                            ;
+                            break;
+
+                        case 4: // Number
+                            <input type="number" name="Field_@field.ID" class="form-control" />
+                            ;
+                            break;
+
+                        case 5: // Checkbox
+                            <input type="checkbox" name="Field_@field.ID" value="1" />
+                            ;
+                            break;
+
+                        case 6: // Rating
+                            <input type="number" min="1" max="5" name="Field_@field.ID" class="form-control" />
+                            ;
+                            break;
+
+                        case 7: // TextArea
+                            <textarea name="Field_@field.ID" class="form-control"></textarea>
+                            ;
+                            break;
+
+                        case 8: // Date
+                            <input type="date" name="Field_@field.ID" class="form-control" />
+                            ;
+                            break;
+
+                        case 10: // File Upload
+                            <input type="file" name="Field_@field.ID" class="form-control" />
+                            ;
+                            break;
+
+                        
+                    }
+                }
+            </div>
+        }
+
+        <input type="hidden" name="ActivityId" value="@Model.FirstOrDefault()?.ActivityId" />
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+}
+
+
