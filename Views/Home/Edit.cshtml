@@ -1,0 +1,37 @@
+﻿@model Ext_Dynamic_Form.Models.DynamicFormData
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Dynamic Form Data</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label>ID</label>
+        <input type="text" class="form-control" asp-for="ID" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Activity ID</label>
+        <input type="number" class="form-control" asp-for="ActivityId" />
+    </div>
+
+    <div class="form-group">
+        <label>Field Name</label>
+        <input type="text" class="form-control" asp-for="FieldName" />
+    </div>
+
+    <div class="form-group">
+        <label>Field Value</label>
+        <input type="text" class="form-control" asp-for="FieldValue" />
+    </div>
+
+    <div class="form-group">
+        <label>Created Date</label>
+        <input type="text" class="form-control" asp-for="CreatedDate" readonly />
+    </div>
+
+    <button type="submit" class="btn btn-success">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>

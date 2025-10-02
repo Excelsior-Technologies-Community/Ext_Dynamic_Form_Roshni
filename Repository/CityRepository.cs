@@ -74,7 +74,7 @@ namespace Ext_Dynamic_Form.Repository
             return list;
         }
 
-        public City GetById(long id,string action)
+        public City GetById(Int64 id,string action)
         {
             City city = null;
             using (SqlConnection con = new SqlConnection(_connectionString))
@@ -101,6 +101,40 @@ namespace Ext_Dynamic_Form.Repository
                 }
             }
             return city;
+        }
+
+        public List<City> GetStateByCity(string action,Int64? stateId = null, Int64? countryId = null)
+        {
+            var list = new List<City>();
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_City_CRUD", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Action", action);
+                    cmd.Parameters.AddWithValue("@StateId", stateId.HasValue ? (object)stateId.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CountryId", countryId.HasValue ? (object)countryId.Value : DBNull.Value);
+                    
+
+                    conn.Open();
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            list.Add(new City
+                            {
+                                ID = (Int64)rdr["ID"],
+                                CityName = rdr["CityName"].ToString(),
+                                StateId = (Int64)rdr["StateId"],
+                                CountryId = (Int64)rdr["CountryId"]
+                            });
+                        }
+                    }
+                }
+            }
+
+            return list;
         }
     }
 }

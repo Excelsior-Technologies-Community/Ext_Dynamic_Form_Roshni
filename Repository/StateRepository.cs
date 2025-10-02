@@ -101,5 +101,37 @@ namespace Ext_Dynamic_Form.Repository
                 }
             }
         }
+
+        public List<State> GetCountryByState(string action,Int64? countryId = null)
+        {
+            var list = new List<State>();
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_State_CRUD", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Action", action);
+                    cmd.Parameters.AddWithValue("@CountryId", countryId.HasValue ? (object)countryId.Value : DBNull.Value);
+                    
+
+                    conn.Open();
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            list.Add(new State
+                            {
+                                ID = (Int64)rdr["ID"],
+                                StateName = rdr["StateName"].ToString(),
+                                CountryId = (Int64)rdr["CountryId"]
+                            });
+                        }
+                    }
+                }
+            }
+
+            return list;
+        }
     }
 }

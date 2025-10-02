@@ -11,17 +11,23 @@
 
     <div class="form-group mb-2">
         <label asp-for="ActivityId" class="form-label">Activity</label>
-        <select asp-for="ActivityId" class="form-control" asp-items="ViewBag.Activities">
+        @* <select asp-for="ActivityId" class="form-control"
+                asp-items="@(new SelectList(ViewBag.Activities, "ID", "Title"))">
             <option value="">-- Select Activity --</option>
-        </select>
+        </select> *@
+        @Html.DropDownListFor(m => m.ActivityId, (SelectList)ViewBag.Activities, "-- Select Activity --", new { @class = "form-control" })
+
+
         <span asp-validation-for="ActivityId" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-2">
         <label asp-for="PageMasterId" class="form-label">Page</label>
-        <select asp-for="PageMasterId" class="form-control" asp-items="ViewBag.Pages">
+        @* <select asp-for="PageMasterId" class="form-control" asp-items="ViewBag.Pages">
             <option value="">-- Select Page --</option>
-        </select>
+        </select> *@
+        @Html.DropDownListFor(m => m.PageMasterId, (SelectList)ViewBag.Pages, "-- Select Page --", new { @class = "form-control" })
+
         <span asp-validation-for="PageMasterId" class="text-danger"></span>
     </div>
 
@@ -30,6 +36,24 @@
         <input asp-for="Title" class="form-control" />
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
+
+    @* <div class="form-group mb-2">
+        <label asp-for="ActionTypeId">Action Type</label>
+        <select asp-for="ActionTypeId" class="form-control" asp-items="ViewBag.ActionTypes">
+            <option value="">-- Select Action Type --</option>
+            <option value="1">Drop-down</option>
+            <option value="2">Text</option>
+            <option value="3">Status</option>
+            <option value="4">Number</option>
+            <option value="5">Checkbox</option>
+            <option value="6">Rating</option>
+            <option value="7">TextArea</option>
+            <option value="8">Date</option>
+            <option value="9">Checkbox 123</option>
+            <option value="10">File</option>
+        </select>
+        <span asp-validation-for="ActionTypeId" class="text-danger"></span>
+    </div> *@
 
     <div class="form-group mb-2">
         <label asp-for="ActionTypeId" class="form-label">Action Type</label>
@@ -41,7 +65,7 @@
 
     <button type="submit" class="btn btn-primary">Update</button>
     <a asp-action="Index" asp-controller="ActivityDetails" class="btn btn-secondary">Back to List</a>
-</form>111
+</form>
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")

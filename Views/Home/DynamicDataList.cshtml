@@ -1,0 +1,71 @@
+﻿@model List<Ext_Dynamic_Form.Models.DynamicFormData>
+
+@{
+    ViewData["Title"] = "DynamicDataList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dynamic Form Data</h2>
+
+<table class="table table-bordered table-striped" id="dynamicdatalist">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Activity ID</th>
+            <th>Field Name</th>
+            <th>Field Value</th>
+            <th>Created Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.ActivityId</td>
+                    <td>@item.FieldName</td>
+                    <td>@item.FieldValue</td>
+                    <td>@item.CreatedDate.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-danger"
+                           onclick="return confirm('Are you sure you want to delete this record?');">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center text-danger">No records found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#dynamicdatalist').DataTable({
+                "paging": true,
+                "pageLength": 10,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+
+            
+        });
+    </script>
+}

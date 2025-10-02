@@ -2,16 +2,86 @@
 
 @{
     ViewData["Title"] = "_DynamicForm";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <form id="dynamicForm">
     @foreach (var field in Model)
     {
-        <div class="form-group mb-3">
+        var fieldName = field.Title.Replace(" ", "_"); 
+
+        <div class="form-group mb-2">
             <label>@field.Title</label>
-            <input type="@field.ActionTypeId" name="@field.Title" class="form-control" />
+
+            @switch (field.ActionTypeId)
+            {
+                case 1: 
+                    <select name="@fieldName" class="form-control">
+                        <option value="">-- Select --</option>
+                    </select>
+                    break;
+
+                case 2: 
+                    <input type="text" name="@fieldName" class="form-control" />
+                    break;
+
+                case 3: 
+                    <select name="@fieldName" class="form-control">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                    break;
+
+                case 4: 
+                    <input type="number" name="@fieldName" class="form-control" />
+                    break;
+
+                case 5: 
+                    <input type="checkbox" name="@fieldName" value="1" />
+                    break;
+
+                case 6: 
+                    <input type="number" min="1" max="5" name="@fieldName" class="form-control" />
+                    break;
+
+                case 7: 
+                    <textarea name="@fieldName" class="form-control"></textarea>
+                    break;
+
+                case 8: 
+                    <input type="date" name="@fieldName" class="form-control" />
+                    break;
+
+                case 10: 
+                    <input type="file" name="@fieldName" class="form-control" />
+                    break;
+            }
         </div>
     }
+    <input type="hidden" name="ActivityId" value="@Model.FirstOrDefault()?.ActivityId" />
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" id="clearForm" class="btn btn-secondary">Clear</button>
 </form>
+
+<script>
+    $(document).ready(function () {
+
+        $("#clearForm").click(function () {
+            
+            var form = $("#dynamicForm")[0];
+            form.reset();
+
+            $(form).find('input[type="checkbox"]').prop('checked', false);
+
+            
+            $(form).find('input[type="file"]').val('');
+
+            
+            $("#submittedDataBody").empty();
+
+           
+            $("#submittedDataSection").hide();
+        });
+
+    });
+</script>
+

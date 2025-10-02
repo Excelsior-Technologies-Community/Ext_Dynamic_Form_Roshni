@@ -7,7 +7,7 @@
 <h2>City List</h2>
 <a asp-action="Create" class="btn btn-primary mb-2">+ Add City</a>
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="CityTable">
     <thead>
         <tr>
             <th>ID</th>
@@ -34,3 +34,25 @@
         }
     </tbody>
 </table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#CityTable').DataTable({
+                "paging": true,
+                "pageLength": 10,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+
+            
+        });
+    </script>
+}

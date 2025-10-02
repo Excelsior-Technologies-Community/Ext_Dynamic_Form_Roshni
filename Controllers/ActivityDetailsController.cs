@@ -1,6 +1,7 @@
 ﻿using Ext_Dynamic_Form.Models;
 using Ext_Dynamic_Form.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Ext_Dynamic_Form.Controllers
 {
@@ -94,7 +95,7 @@ namespace Ext_Dynamic_Form.Controllers
                 return NotFound();
             }
 
-            LoadDropdowns();
+            LoadDropdowns(detail.ActivityId, detail.PageMasterId, detail.ActionTypeId);
             return View(detail);
         }
 
@@ -138,12 +139,37 @@ namespace Ext_Dynamic_Form.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        
-        private void LoadDropdowns()
+        private void LoadDropdowns(long? selectedActivityId = null, long? selectedPageId = null, long? selectedActionTypeId = null)
         {
-            ViewBag.Activities = _activityRepo.GetAll("SELECTALL");
-            ViewBag.Pages = _pageRepo.GetAll("SELECTALL");
+            var activities = _activityRepo.GetAll("SELECTALL");
+            var pages = _pageRepo.GetAll("SELECTALL");
+
+            ViewBag.Activities = new SelectList(activities, "ID", "Title", selectedActivityId);
+            ViewBag.Pages = new SelectList(pages, "ID", "Title", selectedPageId);
+
+            // if action types are static (like your dropdown), you can skip this
+            var actionTypes = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "1", Text = "Drop-down" },
+                new SelectListItem { Value = "2", Text = "Text" },
+                new SelectListItem { Value = "3", Text = "Status" },
+                new SelectListItem { Value = "4", Text = "Number" },
+                new SelectListItem { Value = "5", Text = "Checkbox" },
+                new SelectListItem { Value = "6", Text = "Rating" },
+                new SelectListItem { Value = "7", Text = "TextArea" },
+                new SelectListItem { Value = "8", Text = "Date" },
+                new SelectListItem { Value = "9", Text = "Checkbox 123" },
+                new SelectListItem { Value = "10", Text = "File" }
+            };
+            ViewBag.ActionTypes = new SelectList(actionTypes, "Value", "Text", selectedActionTypeId);
         }
+
+
+        //private void LoadDropdowns()
+        //{
+        //    ViewBag.Activities = _activityRepo.GetAll("SELECTALL");
+        //    ViewBag.Pages = _pageRepo.GetAll("SELECTALL");
+        //}
 
 
     }

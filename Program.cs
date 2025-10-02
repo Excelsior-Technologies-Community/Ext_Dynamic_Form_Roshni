@@ -10,6 +10,8 @@ builder.Services.AddScoped<StateRepository>();
 builder.Services.AddScoped<PageRepository>();
 builder.Services.AddScoped<ActivityRepository>();
 builder.Services.AddScoped<ActivityDetailRepository>();
+builder.Services.AddScoped<DynamicFormRepository>();
+
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
