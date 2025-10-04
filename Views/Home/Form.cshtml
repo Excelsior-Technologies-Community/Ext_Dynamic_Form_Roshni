@@ -1,13 +1,13 @@
 ﻿@model List<Ext_Dynamic_Form.Models.ActivityDetail>
 
 @{
-    ViewData["Title"] = "Form";
+    ViewData["Title"] = "Dynamic Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Select Activity</h2>
 
-<div class="form-group">
+<div class="form-group mb-3">
     <select id="activityDropdown" class="form-control">
         <option value="">-- Select Activity --</option>
         @foreach (var act in ViewBag.Activities)
@@ -17,25 +17,31 @@
     </select>
 </div>
 
+<h3 id="formTitle" class="text-primary mb-3"></h3>
 
-<h3 id="formTitle" class="mt-3 text-primary"></h3>
+
+<div id="dynamic-form-container" class="mb-3"></div>
 
 
-<div id="dynamic-form-container" class="mt-4"></div>
+<div id="formButtons" class="mb-4" style="display:none;">
+    <button type="button" id="addRow" class="btn btn-primary">Add New</button>
+    <button type="button" id="clearForm" class="btn btn-warning">Clear</button>
+</div>
 
-<div id="submittedDataSection" class="mt-5" >
+
+<div id="submittedDataSection" class="mt-4" style="display:none;">
     <h4>Entered Values</h4>
     <table class="table table-bordered" id="submittedDataTable">
         <thead>
-            <tr>
+            <tr id="submittedDataHeader">
                 <th>#</th>
-                <th>Field</th>
-                <th>Value</th>
+                
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody id="submittedDataBody"></tbody>
     </table>
+    <!-- Save button under the table -->
     <button type="button" id="saveToDb" class="btn btn-success">Save to Database</button>
 </div>
 
@@ -44,120 +50,185 @@
     <script>
         $(document).ready(function () {
 
-            
-            $("#activityDropdown").change(function () {
-                var activityId = $(this).val();
-                var activityTitle = $("#activityDropdown option:selected").text();
+        function resetFormFields() {
+            if ($("#dynamicForm").length > 0) {
+                $("#dynamicForm")[0].reset();
+            }
+        }
 
-                if (activityId) {
-                    $("#formTitle").text("Activity: " + activityTitle);
-
-                    $("#dynamic-form-container").html("");
-                    $("#submittedDataHeader").empty();
-                    $("#submittedDataBody").empty();
-                    $("#submittedDataSection").hide();
-
-                    $.get("/Home/GetFormByActivityId", { activityId: activityId }, function (data) {
-                        $("#dynamic-form-container").html(data);
-                    });
-                } else {
-                    $("#formTitle").text("");
-                    $("#dynamic-form-container").html("");
-                    $("#submittedDataSection").hide();
-                }
+        function updateRowNumbers() {
+            $("#submittedDataBody tr").each(function (index) {
+                $(this).find("td:first").text(index + 1);
             });
+            if ($("#submittedDataBody tr").length === 0) {
+                $("#submittedDataSection").hide();
+            }
+        }
 
-            $(document).on("submit", "#dynamicForm", function (e) {
-                e.preventDefault();
+        function appendRow(formValues) {
+            var rowCount = $("#submittedDataBody tr").length + 1;
+            var rowHtml = "<tr><td>" + rowCount + "</td>";
+            for (var key in formValues) {
+                rowHtml += "<td data-name='" + key + "' class='fieldValue'>" + formValues[key] + "</td>";
+            }
+            rowHtml += "<td>" +
+                "<button type='button' class='btn btn-sm btn-warning editBtn'>Edit</button> " +
+                "<button type='button' class='btn btn-sm btn-danger deleteBtn'>Delete</button>" +
+                "</td></tr>";
+            $("#submittedDataBody").append(rowHtml);
+        }
 
-                var formData = $(this).serializeArray();
+        function resetFormSection() {
+            $("#dynamic-form-container").html("");
+            $("#submittedDataBody").html("");
+            $("#submittedDataHeader").find("th.dynamicField").remove();
+            $("#submittedDataSection").hide();
+            $("#formTitle").text("");
+            $("#formButtons").hide();
+        }
 
-                $.each(formData, function (i, field) {
-                    var rowCount = $("#submittedDataBody tr").length + 1;
-                    var row = "<tr data-row='" + rowCount + "'>";
-                    row += "<td>" + rowCount + "</td>";
-                    row += "<td>" + field.name + "</td>";
-                    row += "<td>" + (field.value || "-") + "</td>";
-                    row += "<td>" +
-                        "<button type='button' class='btn btn-sm btn-warning editBtn'>Edit</button> " +
-                        "<button type='button' class='btn btn-sm btn-danger deleteBtn'>Delete</button>" +
-                        "</td></tr>";
+        // Load dynamic form when activity is selected
+        $("#activityDropdown").change(function () {
+            var activityId = $(this).val();
+            var activityTitle = $("#activityDropdown option:selected").text();
+            resetFormSection();
+            if (!activityId) return;
 
-                    $("#submittedDataBody").append(row);
+            $("#formTitle").text("Activity: " + activityTitle);
+
+            $.get("/Home/GetFormByActivityId", { activityId: activityId }, function (data) {
+                $("#dynamic-form-container").html(data);
+
+                // Show Add/Clear buttons under form
+                $("#formButtons").show();
+
+                // Build table headers dynamically
+                $("#dynamicForm input, #dynamicForm select, #dynamicForm textarea").each(function () {
+                    var name = $(this).attr("name");
+                    if ($("#submittedDataHeader th[data-name='" + name + "']").length === 0) {
+                        $("<th class='dynamicField' data-name='" + name + "'>" + name + "</th>")
+                            .insertBefore("#submittedDataHeader th:last");
+                    }
                 });
 
                 $("#submittedDataSection").show();
-                $("#dynamicForm")[0].reset();
+            });
+        });
+
+        // Add new row
+        $("#addRow").click(function () {
+            if ($("#dynamicForm").length === 0) {
+                alert("Please select an activity first!");
+                return;
+            }
+
+            var formValues = {};
+            var emptyField = false;
+
+            $("#dynamicForm input, #dynamicForm select, #dynamicForm textarea").each(function () {
+                var name = $(this).attr("name");
+                var value = $(this).val() || "";
+                formValues[name] = value;
+                if (!value) emptyField = true;
             });
 
-            $(document).on("click", "#saveToDb", function () {
-                var activityId = $("input[name='ActivityId']").val();
+            if (emptyField) {
+                alert("Please fill all fields before adding!");
+                return;
+            }
 
-                var submissions = [];
-                $("#submittedDataBody tr").each(function () {
-                    var fieldName = $(this).find("td:eq(1)").text();
-                    var fieldValue = $(this).find("td:eq(2)").text();
+            // Prevent duplicate
+            var duplicate = false;
+            $("#submittedDataBody tr").each(function () {
+                var match = true;
+                for (var key in formValues) {
+                    if ($(this).find("td[data-name='" + key + "']").text() !== formValues[key]) {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match) duplicate = true;
+            });
 
+            if (duplicate) {
+                alert("This record already exists!");
+                return;
+            }
+
+            appendRow(formValues);
+            resetFormFields();
+        });
+
+        // Clear form fields
+        $("#clearForm").click(function () {
+            resetFormFields();
+        });
+
+        // Edit row
+        $(document).on("click", ".editBtn", function () {
+            var $row = $(this).closest("tr");
+            $("#dynamicForm input, #dynamicForm select, #dynamicForm textarea").each(function () {
+                var name = $(this).attr("name");
+                var value = $row.find("td[data-name='" + name + "']").text();
+                $(this).val(value);
+            });
+            $row.remove();
+            updateRowNumbers();
+        });
+
+        // Delete row
+        $(document).on("click", ".deleteBtn", function () {
+            $(this).closest("tr").remove();
+            updateRowNumbers();
+        });
+
+        // Save all rows to DB
+        $("#saveToDb").click(function () {
+            var activityId = $("#activityDropdown").val();
+            var submissions = [];
+
+            $("#submittedDataBody tr").each(function () {
+                $(this).find("td.fieldValue").each(function () {
                     submissions.push({
                         ActivityId: activityId,
-                        FieldName: fieldName,
-                        FieldValue: fieldValue
+                        FieldName: $(this).data("name"),
+                        FieldValue: $(this).text()
                     });
                 });
+            });
 
-                if (submissions.length === 0) {
-                    alert("No data to save!");
-                    return;
-                }
+            if (submissions.length === 0) {
+                alert("No data to save!");
+                return;
+            }
 
-                $.ajax({
-                    url: "/Home/SaveFormData",
-                    type: "POST",
-                    contentType: "application/json",
-                    data: JSON.stringify(submissions),
-                    success: function (res) {
-                        if (res.success) {
-                            alert("Data saved successfully!");
-                            $("#submittedDataBody").empty();
-                            $("#submittedDataSection").hide();
-                        } else {
-                            alert("Error: " + res.message);
-                        }
-                    },
-                    error: function () {
-                        alert("An error occurred while saving data.");
+            $.ajax({
+                url: "/Home/SaveFormData",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(submissions),
+                success: function (res) {
+                    if (res.success) {
+                        alert("Data saved successfully!");
+                        $("#submittedDataBody").html(""); // clear table
+                        resetFormFields(); // reset form
+                        $("#formButtons").show(); // keep Add/Clear buttons under form
+                        $("#submittedDataSection").show(); // Save button remains under table
+                    } else {
+                        alert("Error: " + res.message);
                     }
-                });
-            });
-
-            $(document).on("click", ".deleteBtn", function () {
-                $(this).closest("tr").remove();
-
-                
-                $("#submittedDataBody tr").each(function (index) {
-                    $(this).find("td:first").text(index + 1);
-                });
-
-                if ($("#submittedDataBody tr").length === 0) {
-                    $("#submittedDataSection").hide();
+                },
+                error: function () {
+                    alert("An error occurred while saving data.");
                 }
             });
-
-            
-            $(document).on("click", ".editBtn", function () {
-                var $row = $(this).closest("tr");
-                var fieldName = $row.find("td:eq(1)").text();
-                var fieldValue = $row.find("td:eq(2)").text();
-
-                $("#dynamicForm [name='" + fieldName + "']").val(fieldValue);
-
-                $row.remove();
-
-                $("#submittedDataBody tr").each(function (index) {
-                    $(this).find("td:first").text(index + 1);
-                });
-            });
-
         });
+
+        // Prevent Enter key from submitting page
+        $(document).on("keypress", "#dynamicForm input", function(e) {
+            if (e.which == 13) e.preventDefault();
+        });
+
+    });
     </script>
 }

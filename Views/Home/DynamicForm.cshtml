@@ -1,39 +1,262 @@
 ﻿@model List<Ext_Dynamic_Form.Models.ActivityDetail>
 
 @{
-    ViewData["Title"] = "DynamicForm";
+    ViewData["Title"] = "Dynamic Multi-Activity Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Select Activity</h2>
+<h2>Dynamic Activities</h2>
 
-<div class="form-group">
-    <select id="activityDropdown" class="form-control">
-        <option value="">-- Select Activity --</option>
-        @foreach (var act in ViewBag.Activities)
-        {
-            <option value="@act.ID">@act.Title</option>
-        }
-    </select>
+<div id="activityContainer">
+    <!-- Activity blocks will be added here dynamically -->
 </div>
 
-<div id="dynamic-form-container" class="mt-4"></div>
+<!-- Button to add new activity section -->
+<button type="button" id="addActivityBlock" class="btn btn-info mt-3">+ Add Activity</button>
+
+<div class="mt-4">
+    <button type="button" id="saveAllToDb" class="btn btn-success">Save All Activities to Database</button>
+    <button type="button" id="clearAll" class="btn btn-danger">Clear All</button>
+</div>
+
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#activityDropdown").change(function () {
-                var activityId = $(this).val();
 
-                if (activityId) {
-                    $.get("/Home/GetFormByActivityId", { activityId: activityId }, function (data) {
-                        $("#dynamic-form-container").html(data);
-                    });
-                } else {
-                    $("#dynamic-form-container").html("");
-                }
+            // 🔹 Template for new activity block
+            function createActivityBlock() {
+                var blockHtml = `
+                <div class="activityBlock border p-3 mb-4">
+                    <h4>Select Activity</h4>
+                    <select class="form-control activityDropdown">
+                        <option value="">-- Select Activity --</option>
+                        @foreach (var act in ViewBag.Activities)
+                        {
+                            <option value="@act.ID">@act.Title</option>
+                        }
+                    </select>
+
+                    <h5 class="formTitle text-primary mt-3"></h5>
+                    <div class="dynamic-form-container mb-3"></div>
+
+                    <div class="formButtons mb-3" style="display:none;">
+                        <button type="button" class="btn btn-primary addRow">Add New</button>
+                        <button type="button" class="btn btn-warning clearForm">Clear</button>
+                    </div>
+
+                    <div class="submittedDataSection mt-3" style="display:none;">
+                        <h5>Entered Values</h5>
+                        <table class="table table-bordered submittedDataTable">
+                            <thead>
+                                <tr class="submittedDataHeader">
+                                    <th>#</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="submittedDataBody"></tbody>
+                        </table>
+                    </div>
+                </div>`;
+                return blockHtml;
+            }
+
+            
+            $("#addActivityBlock").click(function () {
+                $("#activityContainer").append(createActivityBlock());
             });
+
+            
+            function resetFormFields($block) {
+                if ($block.find("#dynamicForm").length > 0) {
+                    $block.find("#dynamicForm")[0].reset();
+                }
+            }
+
+            
+            function updateRowNumbers($block) {
+                $block.find(".submittedDataBody tr").each(function (index) {
+                    $(this).find("td:first").text(index + 1);
+                });
+                if ($block.find(".submittedDataBody tr").length === 0) {
+                    $block.find(".submittedDataSection").hide();
+                }
+            }
+
+            /
+            function appendRow($block, formValues) {
+                var rowCount = $block.find(".submittedDataBody tr").length + 1;
+                var rowHtml = "<tr><td>" + rowCount + "</td>";
+                for (var key in formValues) {
+                    rowHtml += "<td data-name='" + key + "' class='fieldValue'>" + formValues[key] + "</td>";
+                }
+                rowHtml += "<td>" +
+                    "<button type='button' class='btn btn-sm btn-warning editBtn'>Edit</button> " +
+                    "<button type='button' class='btn btn-sm btn-danger deleteBtn'>Delete</button>" +
+                    "</td></tr>";
+                $block.find(".submittedDataBody").append(rowHtml);
+            }
+
+            $(document).on("change", ".activityDropdown", function () {
+                var $block = $(this).closest(".activityBlock");
+                var activityId = $(this).val();
+                var activityTitle = $(this).find("option:selected").text();
+
+                // Reset block
+                $block.find(".formTitle").text("");
+                $block.find(".dynamic-form-container").html("");
+                $block.find(".submittedDataBody").html("");
+                $block.find(".submittedDataHeader th.dynamicField").remove();
+                $block.find(".submittedDataSection").hide();
+
+                if (!activityId) return;
+
+                $block.find(".formTitle").text("Activity: " + activityTitle);
+
+                // Load partial form
+                $.get("/Home/GetFormByActivityId", { activityId: activityId }, function (data) {
+                    $block.find(".dynamic-form-container").html(data);
+                    $block.find(".formButtons").show();
+
+                    // Build headers dynamically
+                    $block.find("#dynamicForm input, #dynamicForm select, #dynamicForm textarea").each(function () {
+                        var name = $(this).attr("name");
+                        if ($block.find(".submittedDataHeader th[data-name='" + name + "']").length === 0) {
+                            $("<th class='dynamicField' data-name='" + name + "'>" + name + "</th>")
+                                .insertBefore($block.find(".submittedDataHeader th:last"));
+                        }
+                    });
+
+                    $block.find(".submittedDataSection").show();
+                });
+            });
+
+            // 🔹 Add row
+            $(document).on("click", ".addRow", function () {
+                var $block = $(this).closest(".activityBlock");
+                var formValues = {};
+                var emptyField = false;
+
+                $block.find("#dynamicForm input, #dynamicForm select, #dynamicForm textarea").each(function () {
+                    var name = $(this).attr("name");
+                    var value = $(this).val() || "";
+                    formValues[name] = value;
+                    if (!value) emptyField = true;
+                });
+
+                if (emptyField) {
+                    alert("Please fill all fields before adding!");
+                    return;
+                }
+
+                // Prevent duplicate row
+                var duplicate = false;
+                $block.find(".submittedDataBody tr").each(function () {
+                    var match = true;
+                    for (var key in formValues) {
+                        if ($(this).find("td[data-name='" + key + "']").text() !== formValues[key]) {
+                            match = false;
+                            break;
+                        }
+                    }
+                    if (match) duplicate = true;
+                });
+
+                if (duplicate) {
+                    alert("This record already exists!");
+                    return;
+                }
+
+                appendRow($block, formValues);
+                resetFormFields($block);
+            });
+
+            // 🔹 Clear form
+            $(document).on("click", ".clearForm", function () {
+                var $block = $(this).closest(".activityBlock");
+                resetFormFields($block);
+            });
+
+            // 🔹 Edit row
+            $(document).on("click", ".editBtn", function () {
+                var $block = $(this).closest(".activityBlock");
+                var $row = $(this).closest("tr");
+
+                $block.find("#dynamicForm input, #dynamicForm select, #dynamicForm textarea").each(function () {
+                    var name = $(this).attr("name");
+                    var value = $row.find("td[data-name='" + name + "']").text();
+                    $(this).val(value);
+                });
+
+                $row.remove();
+                updateRowNumbers($block);
+            });
+
+            // 🔹 Delete row
+            $(document).on("click", ".deleteBtn", function () {
+                var $block = $(this).closest(".activityBlock");
+                $(this).closest("tr").remove();
+                updateRowNumbers($block);
+            });
+
+            // 🔹 Global Save (All Activities)
+            $(document).on("click", "#saveAllToDb", function () {
+                var allSubmissions = [];
+
+                $(".activityBlock").each(function () {
+                    var $block = $(this);
+                    var activityId = $block.find(".activityDropdown").val();
+
+                    $block.find(".submittedDataBody tr").each(function () {
+                        $(this).find("td.fieldValue").each(function () {
+                            allSubmissions.push({
+                                ActivityId: activityId,
+                                FieldName: $(this).data("name"),
+                                FieldValue: $(this).text()
+                            });
+                        });
+                    });
+                });
+
+                if (allSubmissions.length === 0) {
+                    alert("No data to save!");
+                    return;
+                }
+
+                $.ajax({
+                    url: "/Home/SaveFormData",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(allSubmissions),
+                    success: function (res) {
+                        if (res.success) {
+                            alert("All data saved successfully!");
+                            $(".submittedDataBody").html("");
+                            $(".dynamicForm").each(function () { this.reset(); });
+                        } else {
+                            alert("Error: " + res.message);
+                        }
+                    },
+                    error: function () {
+                        alert("An error occurred while saving data.");
+                    }
+                });
+            });
+
+            // 🔹 Global Clear (All Activities)
+            $(document).on("click", "#clearAll", function () {
+                if (!confirm("Are you sure you want to clear all entered data?")) return;
+
+                // Clear all forms and tables
+                $(".submittedDataBody").html("");
+                $(".formTitle").text("");
+                $(".dynamic-form-container").html("");
+                $(".formButtons").hide();
+                $(".submittedDataSection").hide();
+                $(".activityDropdown").val("");
+            });
+
         });
     </script>
 }

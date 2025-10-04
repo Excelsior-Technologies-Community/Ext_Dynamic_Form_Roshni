@@ -148,45 +148,8 @@ namespace Ext_Dynamic_Form.Controllers
             return View(pages);
         }
 
-        public IActionResult DynamicDataList(Int64? activityId = null)
-        {
-            var list = _dynamicFormRepository.GetAll("SELECT", activityId);
-            return View(list);
-        }
-
-        public IActionResult Edit(Int64 id)
-        {
-            var data = _dynamicFormRepository.GetAll("GETBYID", id).FirstOrDefault();
-            if (data == null)
-            {
-                return NotFound();
-            }
-            return View(data);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(DynamicFormData model)
-        {
-            if (ModelState.IsValid)
-            {
-                _dynamicFormRepository.InsertOrUpdate(model, "UPDATE");
-                return RedirectToAction("DynamicDataList");
-            }
-            return View(model);
-        }
-
-        public IActionResult Delete(Int64 id)
-        {
-            var data = _dynamicFormRepository.GetAll("GETBYID", id).FirstOrDefault();
-            if (data == null)
-            {
-                return NotFound();
-            }
-
-            _dynamicFormRepository.Delete(id, "DELETE");
-            return RedirectToAction("DynamicDataList");
-        }
+        
+        
         public IActionResult Privacy()
         {
             return View();
